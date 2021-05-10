@@ -28,8 +28,8 @@ public class ExchangeDataServiceImpl implements ExchangeDataService, OrderBookDa
 
         System.out.println("Best Bid " + orderBook.getBids().lastEntry());
         System.out.println("Best ask " + orderBook.getAsks().firstEntry());
-        System.out.println(new Date());
         System.out.println("Whole Map " + orderBook);
+        System.out.println(new Date());
     }
 
     @Override
