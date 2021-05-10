@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 @Getter
 @Setter
@@ -12,6 +13,6 @@ import java.util.Map;
 @ToString
 public class OrderBook {
 
-    Map<Double, Integer> bids = new HashMap<>();
-    Map<Double, Integer> asks = new HashMap<>();
+    TreeMap<Double, Integer> bids = new TreeMap<>();
+    TreeMap<Double, Integer> asks = new TreeMap<>();
 }

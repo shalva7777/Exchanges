@@ -26,11 +26,8 @@ public class ExchangeDataServiceImpl implements ExchangeDataService, OrderBookDa
         orderBook.getBids().merge(exchange.getBid(), 1, Integer::sum);
         orderBook.getAsks().merge(exchange.getAsk(), 1, Integer::sum);
 
-
-        Double value = orderBook.getBids().keySet().stream().max(Double::compareTo).orElse(0.0);
-        System.out.println("Best Bid Price = " + value + " Amount = " + orderBook.getBids().get(value));
-        value = orderBook.getAsks().keySet().stream().min(Double::compareTo).orElse(0.0);
-        System.out.println("Best ask Price = " + value + " Amount = " + orderBook.getAsks().get(value));
+        System.out.println("Best Bid " + orderBook.getBids().lastEntry());
+        System.out.println("Best ask " + orderBook.getAsks().firstEntry());
         System.out.println(new Date());
         System.out.println("Whole Map " + orderBook);
     }
@@ -66,6 +63,7 @@ public class ExchangeDataServiceImpl implements ExchangeDataService, OrderBookDa
                         e.printStackTrace();
                     }
                 }
+
                 @Override
                 public void afterConnectionEstablished(WebSocketSession session) {
                     System.out.println("established connection - " + session);
