@@ -16,7 +16,6 @@ public class Bitfinex extends Exchange {
         try {
             JSONArray jsonarray = new JSONArray(message);
             String jsonobject = jsonarray.getString(1);
-            System.out.println(jsonobject);
             String[] split = jsonobject.split(",");
             this.bid = Double.parseDouble(split[0].substring(1));
             this.ask = Double.parseDouble(split[2]);
